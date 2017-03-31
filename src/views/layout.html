@@ -1,7 +1,10 @@
 <html>
   <head>
+    {% include "html-head.html" %}
+
   </head>
   <body>
+    {% include "header.html" %}
     <ol>
       {% for result in results %}
       <li>{{ result.title.title }}</li>

@@ -1,0 +1,20 @@
+{
+  "name": "ft-tech-test",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "samjbro <sjbroughton1@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "o-header": "^6.14.1"
+  }
+}
