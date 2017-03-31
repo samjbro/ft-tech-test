@@ -4,18 +4,20 @@
   "main": "server.js",
   "license": "MIT",
   "dependencies": {
+    "browser-sync": "^2.18.8",
     "express": "^4.15.2",
     "gulp-cli": "^1.2.2",
     "nunjucks": "^3.0.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "nodemon": "^1.11.0"
   },
   "devDependencies": {
     "browser-sync": "^2.18.8",
     "gulp": "^3.9.1",
     "gulp-nodemon": "^2.2.1",
-    "nodemon": "^1.11.0"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "node node_modules/gulp/bin/gulp default",
+    "build": "gulp default"
   }
 }
