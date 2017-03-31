@@ -10,7 +10,6 @@ var port = process.env.PORT || 3000;
 
 app.set('assets_path', 'build');
 app.set('views', path.join(__dirname, app.get('assets_path') + '/views'));
-app.use('/styles', express.static(path.join(__dirname, app.get('assets_path'), '/styles')));
 app.use(express.static(path.join(__dirname, app.get('assets_path'))));
 
 nunjucks.configure(app.get('views'), {
