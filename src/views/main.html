@@ -1,0 +1,46 @@
+
+  <div role="main" id="site-content" class="o-grid-container" data-concept-id="search">
+    <div data-o-grid-colspan="12 L8" id="stream" class="o-grid-row">
+      <p class="stream__index-count">
+        Showing <strong>{{ results.length }}</strong> results.
+      </p>
+      <div class="o-teaser-collection o-teaser-collection--stream js-stream-list">
+        <ul class="o-teaser-collection__list">
+          {% for result in results %}
+          <li class="o-teaser-collection__item o-grid-row">
+            <div data-o-grid-colspan="one-third-center">
+              <div class="stream-item">
+                <div class="o-teaser o-teaser--small  " data-o-component="o-teaser">
+                  <div class="o-teaser__content">
+                    <div class="o-teaser__meta">
+                      <a href="#" class="o-teaser__tag"></a>
+
+                    </div>
+
+                    <h2 class="o-teaser__heading">
+                      <a href="#">{{ result.title.title }}</a>
+                    </h2>
+
+
+                    <div class="o-teaser__timestamp o-teaser__timestamp--inprogress">
+                      <span class="o-teaser__timestamp-prefix">Live</span>
+
+                      <time data-o-component="o-date" class="o-date" datetime="{{ result.lifecycle.lastPublishDateTime }}">{{ result.lifecycle.lastPublishDateTime }}</time>
+                    </div>
+
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </li>
+          {% else %}
+          <strong>No results found</strong>
+          {% endfor %}
+        </ul>
+      </div>
+      <ol>
+
+      </ol>
+    </div>
+  </div>

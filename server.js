@@ -37,6 +37,7 @@ function callAPI(res, query) {
   request(data, function(error,response,body) {
     if(error) return console.error('request failed:', error);
     var results = body.results ? body.results[0].results : {};
+    console.log(results[0].lifecycle.lastPublishDateTime)
     res.render('layout.html', {results: results});
   });
 }
@@ -55,7 +56,7 @@ function composeRequest(q="") {
         "curations": ["ARTICLES"]
       },
       'resultContext': {
-        'aspects': ['title', 'lifecycle','summary']
+        'aspects': ['title', 'lifecycle','summary','location','editorial']
       }
     }
   };

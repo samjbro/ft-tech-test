@@ -5,12 +5,7 @@
   </head>
   <body>
     {% include "header.html" %}
-    <ol>
-      {% for result in results %}
-      <li>{{ result.title.title }}</li>
-      {% else %}
-      <strong>No results found</strong>
-      {% endfor %}
-    </ol>
+    {% include "main.html" %}
+
   </body>
 </html>
