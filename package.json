@@ -6,7 +6,11 @@
   "dependencies": {
     "express": "^4.15.2",
     "nunjucks": "^3.0.0",
-    "request": "^2.81.0"
+    "request": "^2.81.0",
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
+    "nodemon": "^1.11.0"
   },
   "devDependencies": {
     "browser-sync": "^2.18.8",
