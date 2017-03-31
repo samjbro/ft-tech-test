@@ -9,6 +9,9 @@
     "request": "^2.81.0"
   },
   "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-nodemon": "^2.2.1",
     "nodemon": "^1.11.0"
   },
   "scripts": {
