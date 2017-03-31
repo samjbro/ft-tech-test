@@ -44,7 +44,7 @@ gulp.task('build-origami', function() {
     js: paths.jsSrc + '**/*.js',
     sass: paths.sassSrc + '**/*.scss',
     buildJS: 'bundle.js',
-    buildCss: 'bundle.scss',
+    buildCss: 'bundle.css',
     buildFolder: 'build/'
   });
 });

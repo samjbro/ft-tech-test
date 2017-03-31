@@ -1,1 +1,74 @@
-    <link rel="stylesheet" href="/styles/bundle.scss">
+
+
+    <meta charset="utf-8" />
+  	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  	<title>FT Headers Tech Test</title>
+  	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  	<!--
+  		Perform your cuts the mustard test.
+  		For information about what features come bundled with other
+  		features in all browsers, see caniuse.com
+  	-->
+  	<script>
+  		var cutsTheMustard = ('querySelector' in document && 'localStorage' in window && 'addEventListener' in window);
+      console.log({className: document.documentElement.className})
+
+  		if (cutsTheMustard) {
+  			// Swap the `core` class on the HTML element for an `enhanced` one
+  			// We're doing it early in the head to avoid a flash of unstyled content
+  			document.documentElement.className = document.documentElement.className.replace(/\bcore\b/g, 'enhanced');
+  		}
+      console.log({className: document.documentElement.className})
+  	</script>
+    <style>body { margin: 0; } .core .o--if-js, .enhanced .o--if-no-js { display: none !important; }</style>
+  	<!-- /*<style>
+  		/* Hide any enhanced experience content when in core mode, and vice versa. */
+  		.core .o--if-js,
+  		.enhanced .o--if-no-js { display: none !important; }
+
+  	html {
+  			/* Set a font family on the whole document */
+  			font-family: Georgia, serif;
+
+  			/* Prevent navigation menus from creating
+  			   extra space on sides of the page */
+  			overflow-x: hidden;
+  		}
+
+  		body {
+  			/* Remove space around the document */
+  			margin: 0;
+  		}
+
+  		/* Add any other inline styles here */
+  	</style>*/ -->
+
+
+    <link rel="stylesheet" href="/styles/bundle.css">
+    <link rel="shortcut icon" href="https://ig.ft.com/favicon.ico" type="image/x-icon">
+  	<!--
+  		Unconditionally load the polyfill service to provide the best support
+  		possible for modern web standards.
+  		Only features missing in this user agent will be filled.
+  		If you want, you can provide a list of features to polyfill, otherwise
+  		all features that can be polyfilled will be.
+  		See the polyfill service home page for more details:
+  		https://cdn.polyfill.io/
+  	-->
+  	<!-- <script src="/public/bundle.js"></script> -->
+
+  	<!--
+  		Load main JavaScript bundle (asynchronously, to make sure it's non-blocking).
+  	-->
+  	<script>
+  		(function(src) {
+  			if (cutsTheMustard) {
+  				var o = document.createElement('script');
+  				o.async = o.defer = true;
+  				o.src = src;
+  				var s = document.getElementsByTagName('script')[0];
+  				s.parentNode.insertBefore(o, s);
+  			}
+  		}("/js/main.js"));
+  	</script>
