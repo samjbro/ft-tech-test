@@ -9,8 +9,8 @@ var apiKey = process.env.ftHeadlineAPIKey;
 var port = process.env.PORT || 3000;
 
 app.set('assets_path', 'build');
-app.set('views', path.join(__dirname, app.get('assets_path') + '/views'));
-app.use(express.static(path.join(__dirname, app.get('assets_path'))));
+app.set('views', 'build/views');
+app.use(express.static('build'));
 
 nunjucks.configure(app.get('views'), {
   autoescape: true,
