@@ -15,7 +15,7 @@
     "nodemon": "^1.11.0"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "node node_modules/gulp/bin/gulp default",
     "build": "gulp default"
   }
 }
