@@ -1,0 +1,13 @@
+<html>
+  <head>
+  </head>
+  <body>
+    <ol>
+      {% for result in results %}
+      <li>{{ result.title.title }}</li>
+      {% else %}
+      <strong>No results found</strong>
+      {% endfor %}
+    </ol>
+  </body>
+</html>
