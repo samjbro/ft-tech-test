@@ -21,6 +21,7 @@
   },
   "scripts": {
     "start": "node node_modules/gulp/bin/gulp default",
-    "build": "gulp default"
+    "build": "gulp default",
+    "postinstall": "./node_modules/bower/bin/bower install"
   }
 }
