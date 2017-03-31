@@ -1,6 +1,9 @@
 {
   "name": "ft-tech-test",
   "version": "1.0.0",
+  "engines": {
+    "node": "6.9.4"
+  },
   "main": "server.js",
   "license": "MIT",
   "dependencies": {
