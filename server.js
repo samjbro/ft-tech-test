@@ -7,6 +7,7 @@ var app = express();
 
 var apiKey = process.env.ftHeadlineAPIKey;
 var port = process.env.PORT || 3000;
+var resultsPerPage = 20;
 
 app.set('assets_path', 'build');
 app.set('views', path.join(__dirname, app.get('assets_path') + '/views'));
@@ -24,15 +25,20 @@ app.get('/', function(req,res) {
 });
 
 app.get('/search', function(req,res) {
-  callAPI(res, req.query.q);
+  console.log({page: req.query.page})
+  req.query.page = typeof req.query.page === 'undefined' ? '1' : req.query.page;
+  console.log({page: req.query.page})
+  var offset = (parseInt(req.query.page) - 1) * resultsPerPage;
+  console.log(offset)
+  callAPI(res, req.query.q, offset);
 });
 
 app.listen(port);
 console.log('listening on port ' + port);
 
-function callAPI(res, query) {
+function callAPI(res, query, offset) {
   if (!apiKey) console.error('Error: No API Key');
-  var data = composeRequest(query);
+  var data = composeRequest(query, offset);
 
   request(data, function(error,response,body) {
     if(error) return console.error('request failed:', error);
@@ -42,7 +48,7 @@ function callAPI(res, query) {
   });
 }
 
-function composeRequest(q="") {
+function composeRequest(q="", offset=0) {
   return {
     url: 'http://api.ft.com/content/search/v1?apiKey=' + apiKey,
     method: 'POST',
@@ -56,7 +62,9 @@ function composeRequest(q="") {
         "curations": ["ARTICLES"]
       },
       'resultContext': {
-        'aspects': ['title', 'lifecycle','summary','location','editorial']
+        'aspects': ['title', 'lifecycle','summary','location','editorial'],
+        'maxResults': resultsPerPage.toString(),
+        'offset': offset.toString()
       }
     }
   };
