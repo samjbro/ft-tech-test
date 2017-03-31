@@ -21,7 +21,7 @@ nunjucks.configure(app.get('views'), {
 });
 
 app.get('/', function(req,res) {
-  callAPI(res);
+  callAPI(res, '', 0);
 });
 
 app.get('/search', function(req,res) {
@@ -43,8 +43,8 @@ function callAPI(res, query, offset) {
   request(data, function(error,response,body) {
     if(error) return console.error('request failed:', error);
     var results = body.results ? body.results[0].results : {};
-    console.log(results[0].lifecycle.lastPublishDateTime)
-    res.render('layout.html', {results: results});
+    // console.log(results[0].lifecycle.lastPublishDateTime)
+    res.render('layout.html', { results: results, query: query, offset: offset });
   });
 }
 

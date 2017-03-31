@@ -39,9 +39,13 @@
           {% endfor %}
         </ul>
       </div>
-      <!-- <div data-pagination role="navigation" aria-label="Pagination" class="o-buttons-pagination">
-        <a class="o-buttons o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" href="{{ window.location.href }}"></a>
-
-      </div> -->
+      <div data-pagination role="navigation" aria-label="Pagination" class="o-buttons-pagination">
+        {% set backLink = '?q=' + query + '&page=' + (offset/20) %}
+        {% set forwardLink = '?q=' + query + '&page=' + (offset/20 + 2) %}
+        {% if offset > 0 %}
+        <a class="o-buttons o-buttons-icon o-buttons-icon--arrow-left o-buttons-icon--icon-only" href="{{ backLink }}"></a>
+        {% endif %}
+        <a class="o-buttons o-buttons-icon o-buttons-icon--arrow-right o-buttons-icon--icon-only" href="{{ forwardLink }}"></a>
+      </div>
     </div>
   </div>
